@@ -12,15 +12,8 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Text(
-                "Logo",
-                style: TextStyle(color: Colors.white),
-              ),
+              height: 40,
+              child: Image.asset('assets/Aiona.png'),
             ),
             const SizedBox(width: 12),
             const Expanded(
@@ -45,14 +38,16 @@ class HomeScreen extends StatelessWidget {
           const Text("Haftaning eng yaxshi o’quvchilari",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-          _bestStudents(),
+          _bestStudents(), // BU YERGA const QO'YMANG
           const SizedBox(height: 24),
           const Text("Eng yaxshi do’stlar",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-          _friendItem("Sabinaxon Rustamova", "2546 km", isPro: true),
-          _friendItem("Lutfullo Toraev", "2035 km"),
-          _friendItem("Xalmotov Ibroxim", "1890 km", isPro: true),
+          _friendItem("Sabinaxon Rustamova", "2546 km", "assets/sr.png",
+              isPro: true),
+          _friendItem("Lutfullo Toraev", "2035 km", "assets/lt.png"),
+          _friendItem("Xalmotov Ibroxim", "1890 km", "assets/xi.png",
+              isPro: true),
         ],
       ),
     );
@@ -91,15 +86,21 @@ class HomeScreen extends StatelessWidget {
 
   Widget _bestStudents() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Expanded(child: _studentCard("Muhlisa Imomova", "16 soat", "11 modul")),
+        Expanded(
+            child: _studentCard(
+                "Muhlisa Imomova", "16 soat", "11 modul", "assets/mi.png")),
         const SizedBox(width: 12),
-        Expanded(child: _studentCard("Husanjan Majidov", "12 soat", "8 modul")),
+        Expanded(
+            child: _studentCard(
+                "Husanjan Majidov", "12 soat", "8 modul", "assets/hm.png")),
       ],
     );
   }
 
-  Widget _studentCard(String name, String hours, String modules) {
+  Widget _studentCard(
+      String name, String hours, String modules, String imagePath) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -110,9 +111,10 @@ class HomeScreen extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              "https://via.placeholder.com/100",
+            child: Image.asset(
+              imagePath,
               height: 100,
+              width: double.infinity,
               fit: BoxFit.cover,
             ),
           ),
@@ -125,18 +127,19 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _friendItem(String name, String km, {bool isPro = false}) {
+  Widget _friendItem(String name, String km, String imagePath,
+      {bool isPro = false}) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 6),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: Color(0xFFEBD9FF),
+        color: const Color(0xFFEBD9FF),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         children: [
-          const CircleAvatar(
-            backgroundImage: NetworkImage("https://via.placeholder.com/50"),
+          CircleAvatar(
+            backgroundImage: AssetImage(imagePath),
             radius: 20,
           ),
           const SizedBox(width: 12),
@@ -145,9 +148,13 @@ class HomeScreen extends StatelessWidget {
           if (isPro)
             const Padding(
               padding: EdgeInsets.only(left: 6),
-              child: Text("Pro",
-                  style: TextStyle(
-                      color: Colors.orange, fontWeight: FontWeight.bold)),
+              child: Text(
+                "Pro",
+                style: TextStyle(
+                  color: Colors.orange,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
         ],
       ),
