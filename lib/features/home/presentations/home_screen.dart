@@ -1,3 +1,4 @@
+import 'package:aiona_mobile/features/home/presentations/lesson_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: const Color(0xFFCE91FF),
         title: Row(
           children: [
-            Container(
+            SizedBox(
               height: 40,
               child: Image.asset('assets/Aiona.png'),
             ),
@@ -33,12 +34,12 @@ class HomeScreen extends StatelessWidget {
           const Text("Darsliklar",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-          _lessonCard(),
+          _lessonCard(context),
           const SizedBox(height: 24),
           const Text("Haftaning eng yaxshi o’quvchilari",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-          _bestStudents(), // BU YERGA const QO'YMANG
+          _bestStudents(),
           const SizedBox(height: 24),
           const Text("Eng yaxshi do’stlar",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -53,33 +54,44 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _lessonCard() {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Color(0xFFE6D6FF),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        children: [
-          ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset("assets/image.png")),
-          const SizedBox(width: 12),
-          const Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Tanqidiy fikrlashni oshirish bo’yicha darsliklar",
-                    style: TextStyle(fontSize: 14)),
-                SizedBox(height: 4),
-                Text("Umidjon Ishmuhammedov",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              ],
+  Widget _lessonCard(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => const LessonDetailScreen(
+              videoUrl: 'https://youtu.be/QiNoWwU3IOU', // istalgan link
             ),
           ),
-        ],
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Color(0xFFE6D6FF),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset("assets/image.png")),
+            const SizedBox(width: 12),
+            const Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Tanqidiy fikrlashni oshirish bo’yicha darsliklar",
+                      style: TextStyle(fontSize: 14)),
+                  SizedBox(height: 4),
+                  Text("Umidjon Ishmuhammedov",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

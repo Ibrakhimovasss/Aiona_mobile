@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Agar sizga hech qanday cheklovlarsiz yangi transport vositasi ixtiro qilish topshirig‘i berilsa, quyidagilardan qaysi yondashuv eng samarali ijodiy natija berishi mumkin?",
+    "options": [
+      "Avvalgi mashhur transport vositalarini nusxalab, ularga kichik o‘zgarishlar kiritish",
+      "Kelajakda odamlar qanday muammolarga duch kelishini tasavvur qilib, ular asosida g‘oya ishlab chiqish",
+      "Faqat hozirgi mavjud texnologiyalar bilan chegaralangan yechimlarni o‘ylab ko‘rish",
+      "Ommabop ixtirolarni so‘rovnoma asosida ko‘chirib olish"
+    ],
+    "correct": "Kelajakda odamlar qanday muammolarga duch kelishini tasavvur qilib, ular asosida g‘oya ishlab chiqish"
+  },
+  {
+    "question": "Tanqidiy fikrlashning asosiy belgilaridan biri nima?",
+    "options": [
+      "O‘z fikrini bildirishdan qo‘rqish",
+      "Fikrlarni shubha ostiga qo‘yish va tahlil qilish",
+      "Faqat ko‘pchilikka ergashish",
+      "Avvalgi fikrlarni takrorlash"
+    ],
+    "correct": "Fikrlarni shubha ostiga qo‘yish va tahlil qilish"
+  },
+  {
+    "question": "Tanqidiy fikrlovchi odam qanday savollar beradi?",
+    "options": [
+      "Bu fikr qayerdan kelgan?",
+      "Kim bu fikrni aytgan?",
+      "Qanday qilib bu fikrni isbotlash mumkin?",
+      "Barchasi to‘g‘ri"
+    ],
+    "correct": "Barchasi to‘g‘ri"
+  }
+]

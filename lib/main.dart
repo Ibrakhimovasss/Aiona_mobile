@@ -12,7 +12,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'Ona Tili Ilovasi',
+      title: 'AIona',
       routerConfig: ref.watch(routerProvider),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
